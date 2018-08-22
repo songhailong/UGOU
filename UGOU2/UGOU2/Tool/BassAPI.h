@@ -1,0 +1,232 @@
+//
+//  BassAPI.h
+//  BAssAPI
+//
+//  Created by shl on 16/1/8.
+//  Copyright © 2016年 shl. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+typedef NS_ENUM(NSInteger,PortType) {
+
+    PortTypeQuerydays=0,//查询签到天数,
+    PortTypeSign=1,//签到接口
+    PortTypeQuerymall=2,//查询U购商城
+    PortTypeUcoin=3,//查询用户U币余额
+    PortTypeForgoods=4,//兑换商品
+    PortTypeoNearbystores=5,//查询附近门店
+    PortTypeStoregoods=6,//根据实体店铺查询店铺商品
+    PortTypeShoppingcart=7,//加入预定购物车
+    PortTypeDeletecart=8,//删购物车
+    PortTypeIDMakecart=9,//根据用户ID查询除预约预约购物车
+    PortTypeOrdersave=10,//预约订单保存                               ，，
+    PortTypeOrderlist=11,//查询预约订单列表
+    PortTypeComecart=12,//加入上门购物车
+    PortTypeDeleteComecart=13,//删除上门购物车
+    PortTypeIDComecart=14,//根据用户ID查询上门购物车
+    PortTypeSaveComecart=15,//上门订单保存
+    PortTypeDeletestoreorde=16,// 删减到店订单列表
+    PortTypeDeleteComeorde=17,//删减上门订单列表
+    PortTypeComePaySucess=18,//上门支付成功
+    PortTypetSorePaySucess=19,//到店支付成功
+    PortTypeDoororderlist=20, //查询上门订单列表
+    PortTypeSavefeedback=21,//保存反馈信息
+    PortTypeLatestversion=22,//检测最新版本
+    PortTypeSearchGoods=23,//搜索
+    PortTypeSaveBrand=24,//品牌收藏藏
+    PortTypeSaveGoods=25,//商品收
+    PortTypeSelectBrand=26,//查询品牌
+    PortTypeSelctGoods=27,//查询商品
+    PortTypeSaveEvaluate=28,//保存评价
+    PortTypeSelectEvaluate=29,//查询评价
+    PortTypeSaveCustomer=30,//保存售后
+    PortTypeSelectTheme=31,// 查询主题
+    PortTypeSelectInsider=32,//查询类目
+    PortTypeSelectrGenera=33,//查询优惠券
+     PortTypeSaveGenera=34,//领取优惠券
+     PortTypeSaveCart=35,//加入购物车
+     PortTypeSelectCart=36,//查询购物车
+    PortTypeDeletpuCart=37,//删除购物车
+    PortTypeGetReg=38,//注册
+    PortTypeGetLog=39,//登录
+     PortTypeGetSdkLog=40,//第三方登录
+     PortTypeGetGoodsId=41,//查询 商品详情
+    PortTypeSavePuOrder=42,//普通订单保存
+     PortTypeSelectPuOrderList=43,//查询普通订单
+     PortTypeDelectPuOrderList=44,//删除普通订单
+     PortTypeSaveAddress=45,//  保存地址
+    PortTypeDelegetAddress=46,//  删址
+    PortTypeSelectBrandList=47,//查询品牌列除地表
+    PortTypeConGoodOrder=48,//  确认收货
+    PortTypegetAddressList=49,//  查询地址
+    PortTypeReturnClient=50,//申请支付
+    PortTypeGetHome=51,//主页头视图
+    PortTypeGetHomeReList=52,//主页 视图
+    PortTypeDefaultAdress=53,//默认地址
+    PortTypeGetUpPass=54,//修改密码
+    PortTypeGetUpMobile=55,//  修改手机号
+   // PortTypeGetGoodsIds=56,//  反馈
+    PortTypeGetUpHeadimg=57,//修改头像
+    PortTypeGetUpUser=58,//  修改资料
+    PortTypeUpAddress=59,//  修改地址
+    PortTypeSelectrMDGenera=60,//查询我的优惠券
+    PortTypeShareGenera=61,//分享优惠券
+    PortTypeManJain=62,//查询满减折扣券
+    PortTypeABatchSaveUser=63,//一键领取
+    PortTypeChargeldPing=64,//查询ping++有没有支付成功
+    PortTypeActivityRegular=65,//618活动
+    PortTypeSmOrderStatusList=66,//查询上门订单状态
+    PortTypeSmOrderDelete=67,//删除上门订单
+    PortTypeStartpicture=68,//启动页广告
+    PortTypeReturegoods=69,//退货
+    PortTypeGetChinaplace=70,//获取城市列表
+    PortTypeGetUservip=71,//查看会员卡
+    PortTypeNewSelectCart=72,//查询普通购物车的新接口
+    PortTypeNewMJOrderType=73,//新生成订单接口
+    PortTypeNewChargeOrderType=74,//新支付接口
+    PortTypeNewOrderSaveType=75,//新保存订单接口
+    PortTypeNewSmOrderSaveType=76,//新上门保存订单
+    PortTypeNewYyOrderSaveType=77,//新到店保存订单
+    PortTypeChangePassWorde=78, //修改密码
+    PortTypeVerifyThreeLogin=79,//验证是否绑定
+    PortTypeGetForYear=80,//获取年份
+    PortTypeSendToSMS=81,//发送验证码短信
+    PortTypeCommitToSMS=82,//验证验证码
+    PortTypeUpdataVerson=83,//获取版本
+    PortTypeActivityZone=84,//活动专区列表
+    PortTypeActivityGoods=85,//获取打折商品
+    PortTypeVideoList=86,//获取视频播放按钮
+    PortTypeBrandDynamics=87,//获取品牌动态
+    PortTypeGetShare=88,//获取分享内容
+    portTypeSearchActivityGood=89,//筛选活动商品
+    portTypeGetPushMessage=90,//获取推送消息
+    portTypeGetTransReqUGPayYinL=91,//新支付接口银联支付
+    portTypeGetUGPayWChatPay=92,//新支付接口微信支付
+    portTypeGetUGPayALiPay=93,//新支付接口支付宝支付
+    portTypeGetSecondsKillGoodList=94,//获取秒杀商品
+    portTypeGetSeckillGood=95,//秒杀详情
+    portTypeGiveUPSeckillGood=96,//放弃秒杀
+    portTypeGiveGetAppAuction=97,//拍卖列表
+    portTypeGiveGetAuctionaGood=98,//拍卖详情
+    portTypeGiveInsertPrice=99,//出价
+    portTypeGiveInsertList=100,//出价纪录
+    portTypeGiveTimingMessage=101,//定时获取出价
+    portTypeGiveCancelAuction=102,//放弃竞拍
+    portTypeGiveSubmitSeckill=103,//抢购（查询是否还有商品）
+};
+//static NSString const * BASEURL=@"http://192.168.0.110:8080/ugouApp/";
+static NSString const * BASEURL=@"https://www.ugouchina.com/ugouApp/";
+
+static NSString const * ShareURL=@"http://www.ugouchina.com/ugouApp/goodsDetails.html?goodsId=";
+static NSString  * URL_GET_QUERY_DAYS=@"GetSignAction.action";
+static NSString  * URL_GET_SIGN=@"SignAction.action";
+static NSString  * URL_GET_QUERY_MALL=@"GetAppUshopAll.action";
+static NSString  * URL_GET_U_COIN=@"GetAppUserRewards.action";
+static NSString  * URL_GET_FOR_GOODS=@"AppUshopBuy.action";
+static NSString  *URL_GET_NEARYBYS_STORES=@"GettAppStoresList.action";
+static NSString  *URL_GET_STORE_GOODS=@"GetAppStoresIdAll.action";
+static NSString  *URL_GET_SHOP_CART=@"SaveYyshoppingCartAction.action";
+static NSString  *URL_GET_DELEGE_CART=@"UpdateAppyyShopcart.action";
+static NSString  *URL_GET_ID_MAKE_CART=@"GetUserYyShoppingCartAction.action";
+static NSString  *URL_GET_ORDER_SAVE=@"YyOrderSaveAction.action";
+static NSString  *URL_GET_ORDER_LIST=@"GetYyOrderAllAction.action";
+static NSString  *URL_GET_COME_CART=@"SaveSmshoppingCartAction.action";
+static NSString  *URL_GET_DELEGE_COME_CART=@"UpdateAppsmShopcartAction.action";
+static NSString  *URL_GET_ID_COME_CART=@"GetUserSmShoppingCartAction.action";
+static NSString  *URL_GET_SAVE_COME_CARY=@"SmOrderSaveAction.action";
+static NSString  *URL_GET_DELEGE_STORE_ORDE=@"YyOrderUpdateAction.action";
+static NSString  *URL_GET_DELEGE_COME_ORDE=@"SmOrderUpdateAction.action";
+static NSString  *URL_GET_COME_PAY_SUCESS=@"SmOrderSuccessAction.action";
+static NSString  *URL_GET_SORE_PAY_SUCESS=@"YyOrderSuccessAction.action";
+static NSString  *URL_GET_DOOR_ORDER_LIST=@"GetSmOrderAllAction.action";
+static NSString  *URL_GET_SAVE_FEEDBACK=@"FeedbackSaveAction.action";
+static NSString  *URL_GET_LATE_STVERSION=@"GetMaxVersionAction.action";
+static NSString  *URL_GET_SEARCH_GODDS=@"SearchAppGoodsAction.action";
+static NSString   *URL_GET_SAVE_BRAND=@"SaveAppBrandCollectAction.action";
+static NSString   *URL_GET_SAVE_GOODS=@"SaveAppGoodsCollectAction.action";
+static NSString  *URL_GET_SELECT_BRAND=@"GetListAppBrandCollectUserIdAction.action";
+static NSString  *URL_GET_SELECT_GOODS=@"GetListAppGoodsCollectUserIdAction.action";
+static NSString  *URL_GET_SAVE_EVALUATE=@"SaveAppEvaluateAction.action";
+static NSString   *URL_GET_SELECT_EVALUATE=@"GetAppEvaluateAction.action";
+static NSString   *URL_GET_SAVE_CUSTOMER=@"SaveAppCustomerAction.action";
+static NSString   *URL_GET_SELECT_THEME=@"GetAppThemeAllAction.action";
+static NSString   *URL_GET_SELECT_INSIDER=@"GetAppGoodsTypeId.action";
+static NSString   *URL_GET_SELECT_GENERAL=@"AppVoucherSelectGeneralAction.action";
+static NSString  *URL_GET_SAVE_GENERAL=@"SaveUserVoucherAction.action";
+static NSString  *URL_GET_SAVE_CART=@"SaveShoppingCartAction.action";
+static NSString   *URL_GET_SELECT_GART=@"GetAppShopcartIdListAction.action";
+static NSString   *URL_GET_DELET_PUGART=@"DeleteShopcartIdAction.action";
+static NSString   *URL_GET_REG=@"RegisteredAction.action";
+static NSString   *URL_GET_LOG=@"GetLoginAction.action";
+static NSString   *URL_GET_SDKLOG=@"SinaRegistered.action";
+static NSString   *URL_GET_GOODSID=@"GetAppGoodsIdAction.action";
+static NSString   *URL_GET_SAVE_PUORDER=@"OrderSaveAction.action";
+static NSString  *URL_GET_SELECT_PUORDER_LIST=@"GetOrderAllAction.action";
+static NSString  *URL_GET_DELECT_PUORDER_LIST=@"UpdateOrderAction.action";
+static NSString  *URL_GET_SAVE_ADD_ADRESS=@"SaveAppAddressAction.action";
+static NSString  *URL_GET_DELEGET_ADRESS=@"DeleteAddressAction.action";
+static NSString  *URL_GET_SELECT_BRAND_LIST=@"GetRecommendAppBrandAction.action";
+static NSString  *URL_GET_CON_GOOD_ORDER=@"ConfirmOrderAction.action";
+
+static NSString  *URL_GET_ADRESS_LIST=@"GetAppAddressAllAction.action";
+
+static NSString  *URL_GET_RETUREN_CLIENT=@"ReturnClientChargeAction.action";
+static NSString  *URL_GET_HOME=@"HomeAction.action";
+static NSString  *URL_GET_HOME_RELIST=@"HomeReAction.action";
+static NSString  *URL_GET_DEFAULT_ADRESS=@"DefaultAddressAction.action";
+static NSString  *URL_GET_UPPASS=@"UpdatePass.action";
+static NSString  *URL_GET_UPMOBLIE=@"UpdateMobile.action";
+
+//static NSString  *URL_GET_GOODS_IDS=@"FeedbackSaveAction.action";
+
+static NSString  *URL_GET_UPHEADIMG=@"UpdateHeadimgAction.action";
+static NSString  *URL_GET_UPUSER=@"UpdateAppUser.action";
+static NSString  *URL_GET_UP_ADRESS=@"UpdateAddressAction.action";
+static NSString  *URL_GET_SELECT_MDGENERA=@"GetUserVoucherIdAction.action";
+static NSString  *URL_GET_SHARE_GENERA=@"yhq.html";
+static NSString  *URL_GET_MAIN_JIAN=@"ManJainAllAction.action";
+static NSString  *URL_GET_ABTCH_SAVAUSER=@"BatchSaveUserVoucherAction.action";
+static NSString *URL_GET_SELECT_PING=@"SelectChargeIdPingAction.action";
+static NSString *URL_GET_ACTIVITY_REGULA=@"OnlineshoppingGoodsAction.action";
+static NSString * URL_GET_SMORDER_STAYUS_LIST=@"GetSmorderStatusListAction.action";
+static NSString * URL_GET_SMORDER_DELETE_LIST=@"Delete_AppSmOder.action";
+static NSString * URL_GET_START_PICTURE_LIST=@"GetSelectAppStartpicture.action";
+static NSString * URL_GET_START_RETURE_GOODS=@"AppReturngoodsSaveAction.action";
+static NSString * URL_GET_CHAIN_PALCE=@"GetChinaAction.action";
+static NSString * URL_GET_USER_VIP=@"GetUserVipAction.action";
+static NSString * URL_GET_SHOOPING_CARD=@"GetUserShoppingCartAction.action";
+static NSString * URL_GET_ORDER_TYPE=@"SubmitOrderAction.action";
+static NSString * URL_GET_NEW_CHARGE_ORDER_TYPE=@"Version28ReturnClientChargeAction.action";
+static NSString * URL_GET_NEW_ORDER_SAVE=@"Version28OrderSaveAction.action";
+static NSString * URL_GET_NEW_SMOEDER_SAVE=@"Version28SmOrderSaveAction.action";
+static NSString *URL_GET_NEW_ORDER_DDSAVE=@"Version28YyOrderSaveAction.action";
+static NSString *URL_GET_NEW_CHANGER_PASSWORDE=@"UpdatePass.action";
+static NSString *URL_GET_NEW_VERIFY_THREE_LOGIN=@"CheckMobileNumAction.action";
+static NSString *URL_GET_NEW_GET_FOR_YEARS=@"GetYearAction.action";
+
+static NSString *URL_GET_NEW_SEND_SMS=@"SendSmsAction.action";
+static NSString *URL_GET_NEW_COMMIT_SMS=@"CheckAliyunSmsAction.action";
+static NSString *URL_GET_NEW_UPDATA_VERSON=@"GetMaxVersionAction.action";
+static NSString *URL_GET_NENW_ACTIVITY_ZONE=@"GetAppActivityZoneListAction.action";
+static NSString *URL_GET_NEW_ACTIVITY_GOOODS=@"GetBandGoodsAction.action";
+static NSString *URL_GET_NEW_VIDEO_LIST=@"GetAppVideoListAction.action";
+static NSString *URL_GET_NEW_BRAND_DYNAMICS=@"GetAppBranddynamicsListAction.action";
+static NSString * URL_GET_NEW_GET_SHARE=@"GetAppShareAction.action";
+static NSString * URL_GET_NEW_SEARCH_ACTIVITY_GOOD=@"SearchBandGoodsAction.action";
+static NSString * URL_GET_NEW_PUSH_MESSAGE=@"GetXgMessageAll.action";
+static NSString * URL_GET_NEW_TRANSREQ_UGPAY_UINL=@"AppTransReqAction.action";
+static NSString * URL_GET_NEW_TRANSREQ_UGPAY_WCHATPAY=@"WxPrePayAction.action";
+static NSString * URL_GET_NEW_TRANSREQ_UGPAY_ALIPAY=@"AlipayRequestAction.action";
+static NSString *  URL_GET_NEW_TRANSREQ_SECK_KILL_ALL=@"GetAppSeckillAllAction.action";
+static NSString *  URL_GET_NEW_TRANSREQ_SECK_KILL_GOOD=@"GetAppSeckillIdAction.action";
+static NSString *  URL_GET_NEW_TRANSREQ_GIVE_UP_SECK_KILL=@"UpdateSeckillAttriTotalAction.action";
+static NSString *   URL_GET_NEW_TRANSREQ_GET_APP_AUCTION=@"GetAppAuctionAllAction.action";
+static NSString  *URL_GET_NEW_TRANSREQ_GET_AUCTION_GOOD=@"GetAppAuctionIdAction.action";
+static NSString  *URL_GET_NEW_TRANSREQ_INSERT_PRICE=@"InsertAuctionRecordAction.action";
+static NSString * const URL_GET_NEW_TRANSREQ_INSERT_LIST=@"GetAuctionListAction.action";
+static NSString * const URL_GET_NEW_TRANSREQ_TIMING_MESESSAGE=@"TimingMessageAction.action";
+static NSString * const URL_GET_NEW_TRANSREQ_CANCEL_AUTION=@"CancelAppAuctionAction.action";
+static NSString * const URL_GET_NEW_TRANSREQ_SUBMIT_SECKILL=@"SubmitSeckillAction.action";
+@interface BassAPI : NSObject
++(NSString *)requestUrlWithPorType:(PortType)aType;
+@end
